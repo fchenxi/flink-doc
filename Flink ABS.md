@@ -6,7 +6,7 @@
 <p>flinkabs<br>
 computation.<br>
 The mechanism used in Flink is called Asynchronous Barrier Snapshotting (ABS)</p>
-<p><img src="https://picasaweb.google.com/118085616586922554000/6519755890717265777#6519755890813781026" alt="flink abs"></p>
+<p><img src="https://lh3.googleusercontent.com/Pe2eeqCeJDPg42QbQoIpmwnXX5GclvKQAmB_Qq30DxXHL-P-L0SjSCctj4fEVcCowwRidFD5XJw" alt="flink-abs"></p>
 <p>1、中央协调器（JobManager中）周期性的在source端注入barrier（黑色实线）。</p>
 <p>2、当source端收到barrier后，立刻做一个快照，即记住当前的offset信息，然后将此barrier广播到所有的输出端。图a)（每个source都会对应一个当前的offset值）。</p>
 <p>3、当中间的task收到其中一个输入端的barrier后，立刻阻塞这个channel；这个channel中被阻塞的数据buffer起来；直到task收到所有的input的barrier。图b)（count-2这个task有一个input channel的barrier还未到，因此之前的3个input channel就会被阻塞）。</p>
